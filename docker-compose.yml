@@ -33,7 +33,7 @@ services:
     volumes:
       - ./mongodb:/data/mongodb
     ports:
-      - '27018:27017'
+      - '27017:27017'
     env_file:
       - ./mongodb/mongo.env
     networks:
