@@ -1,0 +1,13 @@
+version: '2.1'
+
+services:
+  waft-engine:
+    image: waft-engine
+    build: .
+    environment:
+      NODE_ENV: development
+    ports:
+      - 5050:5050
+      - 9229:9229
+    ## set your startup file here
+    command: node --inspect index.js

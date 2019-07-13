@@ -3,7 +3,7 @@ const userMailer = {};
 
 userMailer.SendMailAtRegistration = async user => {
   let mailOptions = {
-    from: '"Ask 4 Trip" <test@mkmpvtltd.tk>', // sender address
+    from: '"Waft Engine" <test@mkmpvtltd.tk>', // sender address
     to: user.email, // list of receivers
     subject: 'User Register Successfully', // Subject line
     text: `Dear ${user.name} <br/>Please verify your email`,
@@ -14,7 +14,7 @@ userMailer.SendMailAtRegistration = async user => {
     email: user.email,
     gender: user.gender,
     code: `http://localhost:5010/verify/email/${user._id}/${user.email_verification_code}`,
-    supportmail: 'support@ask4trip.com',
+    supportmail: 'support@waftengine.com',
   };
   emailTemplate.render(tempalte_path, data, mailOptions);
 };

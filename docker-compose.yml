@@ -1,0 +1,44 @@
+version: '2.1'
+
+services:
+  waft-engine-server:
+    container_name: waft-engine-server
+    image: waft-engine-server
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: .docker/server.dockerfile
+    volumes:
+      - ./server:/var/www/server
+      - /var/www/server/node_modules
+    working_dir: /var/www/server
+    depends_on:
+      - waft-engine-mongo
+    ports:
+      - 5050:5050
+      - 5858:5858
+      - 9229:9229
+    environment:
+      NODE_ENV: production
+    networks:
+      - waft-engine-network
+
+  waft-engine-mongo:
+    container_name: waft-engine-mongo
+    image: waft-engine-mongo
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: .docker/mongo.dockerfile
+    volumes:
+      - ./mongodb:/data/mongodb
+    ports:
+      - '27018:27017'
+    env_file:
+      - ./mongodb/mongo.env
+    networks:
+      - waft-engine-network
+
+networks:
+  waft-engine-network:
+    driver: bridge
