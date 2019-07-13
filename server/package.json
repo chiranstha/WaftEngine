@@ -25,7 +25,7 @@
     "hpp": "^0.2.2",
     "http-status": "^1.2.0",
     "jimp": "^0.6.0",
-    "joi": "^14.3.0",
+    "@hapi/joi": "^15.1.0",
     "jsonwebtoken": "^8.3.0",
     "lodash": "^4.17.11",
     "mailgun-js": "^0.22.0",
@@ -49,7 +49,6 @@
     "validator": "^10.4.0"
   },
   "devDependencies": {
-    "concurrently": "4.0.1",
     "nodemon": "^1.18.2"
   }
 }

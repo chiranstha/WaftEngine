@@ -7,8 +7,8 @@ RUN npm install -g pm2 && \
   mkdir -p $LOG_DIR && \
   mkdir -p $PROJECT_DIR
 WORKDIR $PROJECT_DIR
-COPY server/package.json $PROJECT_DIR/
+COPY server/package.json $PROJECT_DIR
 RUN npm install
 COPY ./server $PROJECT_DIR
 EXPOSE $PORT
-CMD npm start
+CMD node index.js

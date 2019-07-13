@@ -16,10 +16,7 @@ services:
       - waft-engine-mongo
     ports:
       - 5050:5050
-      - 5858:5858
       - 9229:9229
-    environment:
-      NODE_ENV: production
     networks:
       - waft-engine-network
 
@@ -33,7 +30,7 @@ services:
     volumes:
       - ./mongodb:/data/mongodb
     ports:
-      - '27017:27017'
+      - '27018:27017'
     env_file:
       - ./mongodb/mongo.env
     networks:
