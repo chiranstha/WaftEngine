@@ -11,4 +11,4 @@ COPY server/package.json $PROJECT_DIR
 RUN npm install
 COPY ./server $PROJECT_DIR
 EXPOSE $PORT
-CMD node index.js
+CMD ["pm2", "start", "pm2.json", "--watch", "--no-daemon"]
